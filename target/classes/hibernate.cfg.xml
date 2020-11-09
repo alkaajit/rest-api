@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+   <session-factory>
+   
+      <property name = "hibernate.dialect">
+         org.hibernate.dialect.MySQLDialect
+      </property>
+      
+      <property name = "hibernate.connection.driver_class">
+         com.mysql.jdbc.Driver
+      </property>
+      
+      <!-- Assume test is the database name -->
+      
+      <property name = "hibernate.connection.url">
+         jdbc:mysql://swe645db.cblnigtx0ewz.us-east-1.rds.amazonaws.com:3306/swe645db
+      </property>
+      
+      <property name = "hibernate.connection.username">
+         swe645group
+      </property>
+      
+      <property name = "hibernate.connection.password">
+         swe645groupproject
+      </property>
+      
+      <!-- List of XML mapping files -->
+      <mapping resource = "Employee.hbm.xml"/>
+      
+   </session-factory>
+</hibernate-configuration>

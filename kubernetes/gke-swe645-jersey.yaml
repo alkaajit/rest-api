@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jersey-server
+  name: jersey-server
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jersey-server
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: jersey-server
+    spec:
+      containers:
+        - image: gcr.io/core-hash-274103/github.com/haramrit09k/jersey-rest-api
+          imagePullPolicy: IfNotPresent
+          name: jersey-rest-api-1
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  labels:
+    app: jersey-server
+  name: jersey-server-hpa-dh1c
+  namespace: default
+spec:
+  maxReplicas: 5
+  metrics:
+    - resource:
+        name: cpu
+        targetAverageUtilization: 80
+      type: Resource
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: jersey-server
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: jersey-server
+  name: jersey-server-service
+  namespace: default
+spec:
+  clusterIP: 10.92.0.168
+  externalTrafficPolicy: Cluster
+  ports:
+    - nodePort: 30776
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: jersey-server
+  sessionAffinity: None
+  type: LoadBalancer

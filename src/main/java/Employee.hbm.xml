@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name = "org.glassfish.jersey.archetypes.jersey_quickstart_webapp.Survey" table = "SURVEY">
+      
+      <meta attribute = "class-description">
+         This class contains the employee detail. 
+      </meta>
+      
+      <id name = "id" type = "int" column = "id">
+         <generator class="native"/>
+      </id>
+      
+      <property name = "first_name" column = "first_name" type = "string"/>
+      <property name = "last_name" column = "last_name" type = "string"/>
+      <property name = "Street_Addr" column = "Street_Addr" type = "string"/>
+      <property name="City" column = "City" type = "string"/>
+      <property name="State" column = "State" type = "string"/>
+      <property name="ZIP" column = "ZIP" type ="int"/>
+      <property name="Tel_NO" column = "Tel_NO" type = "int"/>
+      <property name="E_Mail" column = "E_Mail" type = "string"/>
+      <property name="Dat" column = "Dat" type = "string"/>
+      <property name="Abt_Campus" column = "Abt_Campus" type ="string"/>
+      <property name="Uni_Ist" column = "Uni_Ist" type = "string"/>
+      <property name="Recommendation" column = "Recommendation" type =  "string"/>
+      
+   </class>
+</hibernate-mapping>
