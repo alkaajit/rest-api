@@ -5,6 +5,14 @@ node {
     }
 
 
+    stage('Build') {
+    echo "Building in progress...."
+    def mavenHome = tool name: 'LocalMaven'
+	if(isUnix()){
+	  sh "${mavenHome}/bin/mvn clean install"
+	}
+    }
+
      stage('Create image') {
 	     def newApp
 	     def registry = 'registry.hub.docker.com'
