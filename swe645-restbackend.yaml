@@ -53,7 +53,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-      port: 8081
+    - name: http
+      port: 8080
       protocol: TCP
       targetPort: 8081
       nodePort: 31750
