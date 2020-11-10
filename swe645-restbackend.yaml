@@ -54,9 +54,9 @@ spec:
   type: NodePort
   ports:
     - name: http
-      port: 8888
+      port: 8081
       protocol: TCP
-      targetPort: 8888
+      targetPort: 8081
       nodePort: 31750
   selector:
     app: swe645-restbackend
