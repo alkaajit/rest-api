@@ -16,7 +16,7 @@
       <!-- Assume test is the database name -->
       
       <property name = "hibernate.connection.url">
-         jdbc:mysql://swe645db.cblnigtx0ewz.us-east-1.rds.amazonaws.com:3306/swe645db
+         jdbc:mysql://swe645db.cphheobzv33x.us-east-2.rds.amazonaws.com:3306/swe645db
       </property>
       
       <property name = "hibernate.connection.username">
