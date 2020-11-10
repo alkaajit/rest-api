@@ -49,7 +49,7 @@ public class MyResource {
 	      Transaction tx = null;
 	      try {
 	         tx = session.beginTransaction();
-	         surveys = session.createQuery("FROM SURVEY").list(); 
+	         surveys = session.createQuery("FROM Survey").list(); 
 	         tx.commit();
 	      } catch (HibernateException e) {
 	         if (tx!=null) tx.rollback();
